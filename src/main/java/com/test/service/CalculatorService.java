@@ -3,6 +3,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+
 @Component
 public class CalculatorService {
 
@@ -21,13 +23,17 @@ public class CalculatorService {
     class MyDerived extends  MyBaseC{
 
     }
-    public void main(String[] args) {
+    public static void main(String[] args) {
 
-        try{
-            throw new MyDerived();
-        }catch (MyBaseC b){
-            System.out.println("fasdf");
-        }
+        ArrayList l = new ArrayList<>(2);
+        l.add(2);
+        l.add(2);
+        l.add(2);
+        l.add(2);
+
+        System.out.println(l.size());
+
+
 
 
         int i1= 5;

@@ -1,51 +1,39 @@
 package com.test.controller;
 
 import com.test.model.User;
+import com.test.model.UserRequest;
+import com.test.model.UserResponse;
 import com.test.repository.UserRepository;
+import com.test.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
-@CrossOrigin()
 @RestController
-@RequestMapping({ "/users" })
+@RequestMapping({"/users"})
 public class UsersController {
 
-	@Autowired
-	UserRepository userRepository;
+    @Autowired
+    UserService userService;
 
-	@GetMapping(produces = "application/json")
-	public ResponseEntity<List<User>> getAll() {
-		try {
-			List<User> users = new ArrayList<User>();
 
-				userRepository.findAll().forEach(users::add);
+    @PostMapping
+    public ResponseEntity<UserResponse> createUser(@RequestBody @Valid UserRequest user) {
 
-			if (users.isEmpty()) {
-				return new ResponseEntity<>(HttpStatus.NO_CONTENT);			}
+        try {
+            UserResponse userResponse = userService
+                    .saveUser(user);
+            return new ResponseEntity<>(userResponse, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
 
-			return new ResponseEntity<>(users, HttpStatus.OK);
-		} catch (Exception e) {
-			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
-
-	@PostMapping
-	public ResponseEntity<User> createUser(@RequestBody User user) {
-
-		try {
-			User _tutorial = userRepository
-					.save(user);
-			return new ResponseEntity<>(_tutorial, HttpStatus.CREATED);
-		} catch (Exception e) {
-			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-
-	}
+    }
 
 
 }
