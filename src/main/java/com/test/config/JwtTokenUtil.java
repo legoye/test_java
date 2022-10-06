@@ -1,4 +1,4 @@
-package com.techgeeknext.config;
+package com.test.config;
 
 import java.io.Serializable;
 import java.util.Date;

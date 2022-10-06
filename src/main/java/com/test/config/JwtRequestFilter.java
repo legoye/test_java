@@ -1,4 +1,4 @@
-package com.techgeeknext.config;
+package com.test.config;
 
 import java.io.IOException;
 
@@ -15,7 +15,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.techgeeknext.service.JwtUserDetailsService;
+import com.test.service.JwtUserDetailsService;
 
 import io.jsonwebtoken.ExpiredJwtException;
 

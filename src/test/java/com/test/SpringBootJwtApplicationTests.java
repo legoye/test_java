@@ -1,4 +1,4 @@
-package com.techgeeknext;
+package com.test;
 
 import org.springframework.boot.test.context.SpringBootTest;
 

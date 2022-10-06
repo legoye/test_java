@@ -1,4 +1,4 @@
-package com.techgeeknext.controller;
+package com.test.controller;
 
 import java.util.Objects;
 
@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.techgeeknext.config.JwtTokenUtil;
-import com.techgeeknext.model.JwtRequest;
-import com.techgeeknext.model.JwtResponse;
+import com.test.config.JwtTokenUtil;
+import com.test.model.JwtRequest;
+import com.test.model.JwtResponse;
 
 @RestController
 @CrossOrigin
