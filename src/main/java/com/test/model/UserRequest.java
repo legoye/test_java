@@ -1,11 +1,16 @@
 package com.test.model;
 
+import org.springframework.beans.factory.annotation.Value;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.util.List;
 
 public class UserRequest {
+
+    @Value(value = "${}")
+    private final String pattern = "";
 
     @NotNull
     @NotBlank
@@ -14,7 +19,7 @@ public class UserRequest {
     @Pattern(regexp = "/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$/",
             message = "Email must be valid")
     private String email;
-    @Pattern(regexp = "^[a-zA-Z0-9]{8}", message = "Length must be 8 characters")
+    @Pattern(regexp = pattern, message = "Length must be 8 characters")
     private String password;
 
     private List<Phone> phones;
