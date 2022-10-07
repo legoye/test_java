@@ -20,8 +20,8 @@ public class UserRequest {
     @Pattern(regexp = "/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$/",
             message = "Email must be valid")
     private String email;
-    @Pattern(regexp = pattern, message = "Length must be 8 characters")
 
+    @Pattern(regexp = pattern, message = "Length must be 8 characters")
     private String password;
 
     private List<Phone> phones;
