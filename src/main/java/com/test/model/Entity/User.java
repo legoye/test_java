@@ -1,4 +1,4 @@
-package com.test.model;
+package com.test.model.Entity;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;

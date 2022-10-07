@@ -1,14 +1,12 @@
 package com.test.service;
 
-import com.test.model.User;
+import com.test.model.Entity.User;
 import com.test.model.UserRequest;
 import com.test.model.UserResponse;
 import com.test.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
-import java.util.Date;
 
 @Service
 public class UserService {

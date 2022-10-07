@@ -1,5 +1,6 @@
 package com.test.model;
 
+import com.test.model.Entity.Phone;
 import org.springframework.beans.factory.annotation.Value;
 
 import javax.validation.constraints.NotBlank;
@@ -9,7 +10,7 @@ import java.util.List;
 
 public class UserRequest {
 
-    @Value(value = "${}")
+    @Value(value = "${validate.pass.regex}")
     private final String pattern = "";
 
     @NotNull
@@ -20,6 +21,7 @@ public class UserRequest {
             message = "Email must be valid")
     private String email;
     @Pattern(regexp = pattern, message = "Length must be 8 characters")
+
     private String password;
 
     private List<Phone> phones;
